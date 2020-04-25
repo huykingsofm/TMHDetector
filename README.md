@@ -55,3 +55,7 @@ We are students of class ANTN2017 in University of Information Technology (UIT)
 
 - Lê Ngọc Huy - SID 17520074  
 [![GitHub Follow](https://img.shields.io/badge/Follow-Huy%20Le%20Ngoc-blue)](https://github.com/huykingsofm)
+
+# Reference
+This project modified facebook scrape tool from Ultimate Facebook Scraper project of Harismuneer  
+[![Github Reference](https://img.shields.io/badge/reference-Ultimate--Facebook--Scraper-green)](https://github.com/harismuneer/Ultimate-Facebook-Scraper)
