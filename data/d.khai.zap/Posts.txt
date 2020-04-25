@@ -1,0 +1,13 @@
+TIME              || TYPE          || REACTS || CMTs || IMGs ||
+
+Sunday, 5 April 2020 at 11:45 || status update || 48 || 25  || 1
+Tuesday, 31 March 2020 at 19:32 || shared a post || 7 || 0 || 0
+Tuesday, 25 February 2020 at 20:58 || status update || 100 || 17  || 1
+Monday, 17 February 2020 at 22:02 || shared a post || 26 || 23  || 0
+Tuesday, 11 February 2020 at 17:59 || status update || 90 || 11  || 1
+Friday, 7 February 2020 at 10:42 || status update || 95 || 30  || 1
+Saturday, 25 January 2020 at 11:56 || status update || 142 || 45  || 1
+Sunday, 5 January 2020 at 18:56 || status update || 7 || 0 || 1
+Tuesday, 31 December 2019 at 22:13 || status update || 129 || 68  || 1
+Thursday, 12 December 2019 at 16:02 || status update || 32 || 5  || 1
+Wednesday, 6 November 2019 at 07:30 || status update || 107 || 26  || 1

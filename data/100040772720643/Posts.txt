@@ -1,0 +1,26 @@
+TIME              || TYPE          || REACTS || CMTs || IMGs ||
+
+Friday, 17 April 2020 at 23:45 || shared a post || 1 || 0 || 0
+Friday, 20 March 2020 at 17:32 || status update || 1 || 0 || 1
+Tuesday, 17 March 2020 at 12:03 || status update || 0 || 0 || 0
+Wednesday, 26 February 2020 at 19:41 || shared a post || 1 || 2  || 0
+Wednesday, 26 February 2020 at 16:31 || status update || 1 || 1  || 0
+Monday, 24 February 2020 at 21:58 || shared a post || 0 || 1  || 0
+Sunday, 2 February 2020 at 12:20 || shared a post || 1 || 1  || 0
+Friday, 31 January 2020 at 22:14 || status update || 1 || 2  || 0
+Saturday, 25 January 2020 at 09:20 || shared a post || 1 || 1  || 0
+Wednesday, 15 January 2020 at 16:40 || shared a post || 0 || 1  || 0
+Tuesday, 31 December 2019 at 09:42 || shared a post || 0 || 0 || 0
+Tuesday, 31 December 2019 at 00:01 || status update || 1 || 0 || 0
+Friday, 27 December 2019 at 17:07 || shared a post || 0 || 0 || 0
+Sunday, 15 December 2019 at 18:07 || shared a post || 1 || 0 || 1
+Wednesday, 11 December 2019 at 23:05 || shared a post || 0 || 0 || 1
+Tuesday, 19 November 2019 at 14:39 || shared a post || 0 || 0 || 0
+Tuesday, 12 November 2019 at 16:55 || shared a post || 0 || 0 || 0
+Sunday, 10 November 2019 at 13:57 || shared a post || 0 || 0 || 4
+Sunday, 29 September 2019 at 06:45 || shared a post || 0 || 0 || 0
+Friday, 30 August 2019 at 11:07 || shared a post || 1 || 0 || 0
+Thursday, 29 August 2019 at 10:09 || shared a post || 1 || 0 || 0
+Thursday, 29 August 2019 at 10:09 || shared a post || 2 || 0 || 0
+Monday, 26 August 2019 at 20:00 || status update || 1 || 0 || 1
+Monday, 26 August 2019 at 19:37 || status update || 2 || 0 || 1

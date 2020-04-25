@@ -1,0 +1,51 @@
+TIME              || TYPE          || REACTS || CMTs || IMGs ||
+
+Friday, 6 March 2020 at 23:34 || shared a post || 3 || 5  || 0
+Sunday, 23 February 2020 at 16:20 || shared a post || 8 || 0 || 2
+Saturday, 4 January 2020 at 22:33 || status update || 188 || 130  || 1
+Wednesday, 6 November 2019 at 21:09 || status update || 87 || 49  || 1
+Friday, 1 November 2019 at 15:45 || status update || 2 || 0 || 0
+Thursday, 19 September 2019 at 13:58 || status update || 93 || 58  || 1
+Thursday, 1 August 2019 at 19:07 || shared a post || 3 || 0 || 1
+Saturday, 13 July 2019 at 21:18 || status update || 91 || 60  || 1
+Monday, 18 February 2019 at 23:20 || status update || 104 || 29  || 1
+Thursday, 14 February 2019 at 23:44 || status update || 92 || 32  || 1
+Wednesday, 19 December 2018 at 00:13 || status update || 112 || 65  || 1
+Sunday, 2 December 2018 at 09:19 || shared a post || 63 || 24  || 15
+Wednesday, 28 November 2018 at 19:32 || status update || 114 || 81  || 1
+Tuesday, 27 November 2018 at 23:26 || status update || 103 || 29  || 1
+Sunday, 4 November 2018 at 08:49 || status update || 91 || 26  || 1
+Sunday, 7 October 2018 at 23:05 || status update || 120 || 80  || 1
+Monday, 10 September 2018 at 19:52 || status update || 96 || 51  || 1
+Wednesday, 22 August 2018 at 16:12 || status update || 188 || 130  || 1
+Tuesday, 5 June 2018 at 16:21 || status update || 112 || 65  || 1
+Saturday, 14 April 2018 at 16:21 || status update || 128 || 57  || 1
+Monday, 26 March 2018 at 14:42 || status update || 100 || 75  || 1
+Wednesday, 24 January 2018 at 22:57 || status update || 83 || 34  || 1
+Wednesday, 24 January 2018 at 22:52 || status update || 99 || 78  || 1
+Sunday, 12 November 2017 at 15:02 || status update || 99 || 78  || 1
+Tuesday, 25 July 2017 at 20:58 || status update || 48 || 35  || 1
+Sunday, 25 September 2016 at 22:25 || status update || 62 || 43  || 1
+Wednesday, 1 June 2016 at 21:17 || status update || 33 || 25  || 1
+Sunday, 17 April 2016 at 21:54 || status update || 28 || 2  || 1
+Sunday, 17 April 2016 at 21:47 || status update || 96 || 100  || 1
+Thursday, 17 March 2016 at 20:31 || status update || 45 || 12  || 1
+Saturday, 5 March 2016 at 22:01 || status update || 59 || 13  || 1
+Sunday, 31 January 2016 at 22:13 || status update || 56 || 43  || 1
+Friday, 13 November 2015 at 10:40 || status update || 23 || 0 || 1
+Friday, 6 November 2015 at 16:54 || status update || 67 || 14  || 1
+Monday, 7 September 2015 at 19:14 || status update || 54 || 1  || 1
+Wednesday, 26 August 2015 at 21:24 || status update || 96 || 22  || 1
+Monday, 20 July 2015 at 00:11 || status update || 88 || 49  || 1
+Tuesday, 16 June 2015 at 01:11 || status update || 44 || 15  || 1
+Tuesday, 12 May 2015 at 07:57 || status update || 50 || 18  || 1
+Sunday, 5 April 2015 at 19:18 || status update || 60 || 8  || 1
+Friday, 6 February 2015 at 20:02 || status update || 50 || 19  || 1
+Monday, 29 December 2014 at 22:43 || status update || 53 || 16  || 1
+Friday, 14 November 2014 at 01:47 || status update || 19 || 0 || 1
+Wednesday, 3 September 2014 at 14:16 || status update || 39 || 0 || 1
+Tuesday, 6 May 2014 at 12:45 || status update || 55 || 12  || 1
+Wednesday, 12 March 2014 at 15:22 || status update || 29 || 18  || 1
+Tuesday, 26 November 2013 at 19:43 || status update || 55 || 16  || 1
+Saturday, 23 November 2013 at 19:10 || status update || 25 || 0 || 1
+Monday, 5 August 2013 at 19:50 || status update || 5 || 9  || 1

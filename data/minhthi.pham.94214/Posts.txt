@@ -1,0 +1,97 @@
+TIME              || TYPE          || REACTS || CMTs || IMGs ||
+
+Tuesday, 21 April 2020 at 20:38 || status update || 0 || 0 || 1
+Tuesday, 21 April 2020 at 19:51 || status update || 3 || 0 || 0
+Tuesday, 21 April 2020 at 14:06 || shared a post || 0 || 0 || 0
+Sunday, 19 April 2020 at 22:40 || status update || 4 || 3  || 0
+Sunday, 19 April 2020 at 19:10 || shared a post || 2 || 0 || 0
+Saturday, 18 April 2020 at 01:41 || shared a post || 1 || 0 || 0
+Saturday, 18 April 2020 at 01:40 || shared a post || 1 || 0 || 0
+Wednesday, 15 April 2020 at 11:17 || shared a post || 0 || 0 || 0
+Wednesday, 15 April 2020 at 11:17 || shared a post || 0 || 0 || 1
+Tuesday, 14 April 2020 at 22:36 || shared a post || 4 || 10  || 0
+Tuesday, 14 April 2020 at 22:16 || shared a post || 1 || 0 || 0
+Tuesday, 14 April 2020 at 15:12 || shared a post || 1 || 0 || 0
+Tuesday, 14 April 2020 at 14:26 || status update || 0 || 0 || 0
+Tuesday, 14 April 2020 at 07:00 || status update || 1 || 0 || 0
+Monday, 13 April 2020 at 22:18 || shared a post || 0 || 0 || 0
+Monday, 13 April 2020 at 21:44 || shared a post || 0 || 0 || 0
+Monday, 13 April 2020 at 19:41 || shared a post || 7 || 4  || 0
+Sunday, 12 April 2020 at 22:37 || status update || 0 || 0 || 0
+Sunday, 12 April 2020 at 21:42 || shared a post || 3 || 2  || 0
+Sunday, 12 April 2020 at 11:53 || shared a post || 0 || 0 || 0
+Sunday, 12 April 2020 at 11:44 || shared a post || 1 || 0 || 0
+Sunday, 12 April 2020 at 06:41 || shared a post || 2 || 0 || 1
+Saturday, 11 April 2020 at 21:50 || shared a post || 0 || 0 || 0
+Saturday, 11 April 2020 at 20:49 || shared a post || 1 || 0 || 0
+Saturday, 11 April 2020 at 19:48 || shared a post || 0 || 0 || 2
+Saturday, 11 April 2020 at 14:03 || shared a post || 2 || 0 || 0
+Saturday, 11 April 2020 at 12:12 || shared a post || 0 || 0 || 0
+Friday, 10 April 2020 at 21:04 || status update || 0 || 0 || 0
+Friday, 10 April 2020 at 10:45 || shared a post || 1 || 2  || 0
+Friday, 10 April 2020 at 09:50 || status update || 0 || 0 || 0
+Friday, 10 April 2020 at 08:44 || status update || 0 || 0 || 0
+Thursday, 9 April 2020 at 06:31 || shared a post || 0 || 0 || 1
+Monday, 6 April 2020 at 21:11 || status update || 0 || 0 || 0
+Monday, 6 April 2020 at 13:49 || shared a post || 0 || 0 || 0
+Saturday, 4 April 2020 at 12:56 || shared a post || 0 || 0 || 0
+Saturday, 4 April 2020 at 08:49 || shared a post || 0 || 0 || 2
+Friday, 3 April 2020 at 15:12 || status update || 2 || 0 || 0
+Thursday, 2 April 2020 at 22:06 || shared a post || 3 || 0 || 1
+Thursday, 2 April 2020 at 21:55 || status update || 0 || 0 || 0
+Thursday, 2 April 2020 at 11:23 || status update || 0 || 0 || 0
+Thursday, 2 April 2020 at 08:19 || shared a post || 0 || 0 || 1
+Wednesday, 1 April 2020 at 15:36 || status update || 43 || 33  || 1
+Wednesday, 1 April 2020 at 10:28 || shared a post || 1 || 0 || 0
+Wednesday, 1 April 2020 at 10:00 || shared a post || 1 || 0 || 0
+Sunday, 29 March 2020 at 20:33 || status update || 33 || 25  || 3
+Saturday, 28 March 2020 at 16:34 || shared a post || 0 || 0 || 0
+Sunday, 22 March 2020 at 20:51 || shared a post || 1 || 0 || 0
+Sunday, 22 March 2020 at 20:50 || shared a post || 0 || 0 || 0
+Friday, 20 March 2020 at 11:09 || shared a post || 2 || 1  || 1
+Thursday, 19 March 2020 at 19:38 || shared a post || 3 || 3  || 1
+Thursday, 19 March 2020 at 09:57 || shared a post || 1 || 0 || 1
+Wednesday, 18 March 2020 at 22:38 || shared a post || 0 || 0 || 1
+Wednesday, 18 March 2020 at 00:12 || status update || 15 || 13  || 0
+Monday, 16 March 2020 at 11:27 || shared a post || 2 || 0 || 1
+Tuesday, 10 March 2020 at 13:31 || shared a post || 2 || 0 || 0
+Saturday, 29 February 2020 at 10:19 || shared a post || 0 || 0 || 0
+Sunday, 23 February 2020 at 06:30 || shared a post || 4 || 9  || 0
+Wednesday, 19 February 2020 at 18:58 || status update || 1 || 1  || 0
+Monday, 17 February 2020 at 13:53 || shared a post || 1 || 0 || 0
+Monday, 10 February 2020 at 22:55 || shared a post || 1 || 0 || 2
+Sunday, 9 February 2020 at 07:18 || shared a post || 0 || 0 || 0
+Wednesday, 5 February 2020 at 13:38 || shared a post || 0 || 0 || 0
+Wednesday, 5 February 2020 at 11:34 || status update || 16 || 8  || 1
+Tuesday, 4 February 2020 at 16:39 || status update || 38 || 24  || 14
+Tuesday, 4 February 2020 at 05:26 || shared a post || 0 || 0 || 0
+Monday, 3 February 2020 at 07:39 || status update || 1 || 0 || 0
+Monday, 3 February 2020 at 07:38 || status update || 1 || 0 || 1
+Tuesday, 5 November 2019 at 18:41 || status update || 1 || 0 || 0
+Friday, 2 August 2019 at 19:58 || shared a post || 24 || 6  || 1
+Tuesday, 2 July 2019 at 11:19 || shared a post || 23 || 9  || 1
+Tuesday, 2 July 2019 at 10:28 || status update || 3 || 0 || 1
+Monday, 24 June 2019 at 18:58 || status update || 18 || 2  || 1
+Monday, 24 June 2019 at 18:07 || status update || 8 || 9  || 1
+Monday, 24 June 2019 at 15:51 || status update || 3 || 1  || 1
+Monday, 24 June 2019 at 15:50 || shared a post || 1 || 0 || 1
+Monday, 24 June 2019 at 15:47 || status update || 1 || 0 || 1
+Monday, 24 June 2019 at 15:28 || shared a post || 0 || 0 || 1
+Monday, 24 June 2019 at 15:03 || status update || 3 || 0 || 1
+Wednesday, 19 June 2019 at 14:21 || status update || 27 || 7  || 1
+Tuesday, 18 June 2019 at 07:34 || shared a post || 7 || 0 || 1
+Tuesday, 18 June 2019 at 06:12 || shared a post || 4 || 2  || 1
+Tuesday, 18 June 2019 at 06:10 || status update || 21 || 4  || 1
+Tuesday, 18 June 2019 at 06:05 || shared a post || 1 || 0 || 1
+Thursday, 30 May 2019 at 19:59 || status update || 67 || 5  || 2
+Tuesday, 7 May 2019 at 23:21 || status update || 13 || 2  || 1
+Thursday, 7 March 2019 at 09:40 || shared a post || 0 || 0 || 1
+Tuesday, 20 November 2018 at 08:45 || status update || 34 || 20  || 0
+Sunday, 19 August 2018 at 15:21 || status update || 19 || 0 || 1
+Saturday, 7 July 2018 at 23:54 || shared a post || 4 || 0 || 1
+Friday, 29 June 2018 at 22:01 || status update || 15 || 6  || 1
+Friday, 29 June 2018 at 21:55 || status update || 5 || 0 || 1
+Thursday, 28 June 2018 at 10:51 || status update || 5 || 0 || 1
+Thursday, 28 June 2018 at 06:49 || status update || 3 || 0 || 1
+Thursday, 28 June 2018 at 06:39 || status update || 2 || 0 || 1
+Sunday, 11 December 2016 at 18:47 || status update || 44 || 17  || 3
