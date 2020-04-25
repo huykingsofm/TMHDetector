@@ -43,3 +43,15 @@ $ python Client.py fb_id
 # or
 $ python Client.py fb_id --ip 10.0.0.1 --port 13579
 ```
+
+# Authors
+We are students of class ANTN2017 in University of Information (UIT)
+- Lê Thị Huyền Thư - SID 17521104  
+[![GitHub Follow](https://img.shields.io/badge/Follow-Thu%20Le%20Thi%20Huyen-blue)](https://github.com/HuyenThu123456789)
+
+- Lê Thị Huyền My - SID 17520771  
+[![GitHub Follow](https://img.shields.io/badge/Follow-My%20Le%20Thi%20Huyen-blue)](https://github.com/Huy3nMy)
+
+
+- Lê Ngọc Huy - SID 17520074  
+[![GitHub Follow](https://img.shields.io/badge/Follow-Huy%20Le%20Ngoc-blue)](https://github.com/huykingsofm)
