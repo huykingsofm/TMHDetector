@@ -26,8 +26,8 @@ $ pip install -r requirements.txt
 
 ## How to run  
 On Server machine
-- Fill all facebook accounts (email and password) into [`credentials.yaml`](.\credentials.yaml) to serve crawling
-- Fill ip and port of server into [`credentials.yaml`](.\credentials.yaml)
+- Fill all facebook accounts (email and password) into [`credentials.yaml`](credentials.yaml) to serve crawling
+- Fill ip and port of server into [`credentials.yaml`](credentials.yaml)
 ```bash
 $ python Server.py
 ```
