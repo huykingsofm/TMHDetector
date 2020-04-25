@@ -105,6 +105,8 @@ class DetectorServer:
         self.__password__ = []
         for i in range(100):
             if "email{}".format(i) in cfg and "password{}".format(i) in cfg:
+                if cfg["email{}".format(i)] == None or cfg["password{}".format(i)] == None:
+                    continue
                 self.__email__.append(cfg["email{}".format(i)])
                 self.__password__.append(cfg["password{}".format(i)])
 
