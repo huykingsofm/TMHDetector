@@ -78,7 +78,6 @@ def __get_title__(x):
     finally:
         return title
 
-
 def __get_time__(x):
     t = ""
     try:

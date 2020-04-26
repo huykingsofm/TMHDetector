@@ -334,6 +334,9 @@ class Scraper2:
             print("Some error occurred in creating the profile directory.")
             return False
 
+        # Nickname and avatar
+        self.__scrape_nickname_and_avatar__(target_dir)
+    
         #Friends
         self.__send_message__(kind = "notify", data = "Scraping friends......", level= 1)
         ret = self.__scrape_data__(user_id, "Friends", target_dir)
@@ -356,6 +359,27 @@ class Scraper2:
         self.__send_message__(kind = "notify", data = "Scraping posts......Done", level= 1)
 
         return True
+
+    def __scrape_nickname_and_avatar__(self, target_dir):
+        nickname = self.__driver__.find_element_by_class_name("_2nlw").text
+        nickname = nickname.split("\n")
+
+        fullname = nickname[0]
+        alter = "No alternate name"
+        if len(nickname) > 1:
+            alter = nickname[1][1:-1]
+
+        avatar = self.__driver__.find_element_by_class_name("_11kf").get_attribute("src")
+
+        filename = os.path.join(target_dir, "Avatar.txt")
+        with open(filename, mode = "wt", encoding= "utf-8") as f:
+            f.write("NICKNAME AND AVATAR\n")
+            f.write("Fullname\n")
+            f.write(fullname + "\n")
+            f.write("Aternate name\n")
+            f.write(alter + "\n")
+            f.write("Avatar link\n")
+            f.write(avatar)
 
     def __safe_find_element_by_id__(self, elem_id):
         try:
@@ -457,4 +481,5 @@ class Scraper2:
 
 if __name__ == "__main__":
     scrape = Scraper2("0917281911", "huy040999")
+    scrape.__CHROMEDRIVER_BINARIES_FOLDER__ = "../bin"
     scrape("huyln99")

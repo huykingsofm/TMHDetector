@@ -1,4 +1,6 @@
-ABOUT HUY
-No additional details to show
-FAVOURITE QUOTES
-No favourite quotes to show
+ABOUT YOU
+Write some details about yourself
+OTHER NAMES
+Add a nickname, a birth name...
+FAVORITE QUOTES
+Add your favorite quotations

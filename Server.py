@@ -2,42 +2,54 @@ from Tcp import Tcp
 import json
 from scraper2.Scraper2 import Scraper2 
 import yaml
-from dataprocessing.DataProcessing import DataProcessing
+from DataProcessing import DataProcessing
 from sklearn.ensemble import RandomForestClassifier
 import pickle
-from dataprocessing.convertor import Convertor
+from convertor import Convertor
 import pandas as pd
 
 def load(filename):
+    "Load a object which is dumped in a file with pickle"
     with open(filename, mode= "rb") as f:
         return pickle.load(f)
 
 def __test__(dp, model, fbid):
+    "Using for quick test a crawled account"
+
+    # Create a convertor and convert files in a account to vector
     convertor = Convertor("data")
     profile = convertor.read_profile(fbid)
     profile = pd.DataFrame([profile])
 
-    datapreprocessing = load(dp)
-    
+    # Load datapreprocessing object and nomalizing vector
+    datapreprocessing = load(dp)    
     profile = datapreprocessing.convert(profile)
 
+    # Load model and predict result
     randomforest = load(model)
-    
     result = randomforest.predict_proba(profile)[0]
+
     print(result)
 
 def __solver__(conn, addr, data, **kwargs):
+    "Resolve a package 'data' come from client"
+
+    # Change data from string to json
     data = json.loads(data)
 
+    # Get parameter server
     if "server" not in kwargs:
         raise Exception("Expected server parameter")
-    
     server = kwargs["server"]
 
+    # Solve data have key fb_id
     if "fb_id" in data:
         while True:
+            # Get email and password from server object
             email = server.__email__[server.__current_account__]
             password = server.__password__[server.__current_account__]
+
+            # Create scraper and start scraping facebook account
             try:
                 scraper = Scraper2(email, password, verbose= "send", sender= conn)
                 bSuccess = scraper(data["fb_id"])
@@ -47,6 +59,7 @@ def __solver__(conn, addr, data, **kwargs):
                 conn.close()
                 return
 
+            # Not success if the crawler account is banned
             if bSuccess:
                 break
             content = json.dumps({
@@ -56,48 +69,52 @@ def __solver__(conn, addr, data, **kwargs):
                 "end": "\n"
                 })
             conn.send(content.encode())
+
+            # Switch account
             server.__current_account__ = (server.__current_account__ + 1) % len(server.__email__) 
 
     
-    content = json.dumps({"kind": "notify", "data": "Converting crawled data to vector......", "level": 0, "end": ""})
-    conn.send(content.encode())
+        content = json.dumps({"kind": "notify", "data": "Converting crawled data to vector......", "level": 0, "end": ""})
+        conn.send(content.encode())
 
-    convertor = Convertor("data")
-    profile = convertor.read_profile(data["fb_id"].split("/")[-1])
-    profile = pd.DataFrame([profile])
+        # Create convertor and convert crawled data to vector
+        convertor = Convertor("data")
+        profile = convertor.read_profile(data["fb_id"].split("/")[-1])
+        profile = pd.DataFrame([profile])
 
-    content = json.dumps({"kind": "notify", "data": "Done", "level": None, "end": "\n"})
-    conn.send(content.encode())
+        content = json.dumps({"kind": "notify", "data": "Done", "level": None, "end": "\n"})
+        conn.send(content.encode())
+        
+        content = json.dumps({"kind": "notify", "data": "Preprocessing data......", "level": 0, "end": ""})
+        conn.send(content.encode())
+        
+        # Load datapreprocessing object and normalizing vector
+        datapreprocessing = load("pkg/DataPreprocessingremove.dp")
+        profile = datapreprocessing.convert(profile)
 
-    datapreprocessing = load("pkg/DataPreprocessingremove.dp")
-    
-    content = json.dumps({"kind": "notify", "data": "Preprocessing data......", "level": 0, "end": ""})
-    conn.send(content.encode())
-    
-    profile = datapreprocessing.convert(profile)
+        content = json.dumps({"kind": "notify", "data": "Done", "level": None, "end": "\n"})
+        conn.send(content.encode())
+        
+        content = json.dumps({"kind": "notify", "data": "Predicting using Random forest......", "level": 0, "end": ""})
+        conn.send(content.encode())
+        
+        # Load model and predict result
+        randomforest = load("pkg/overRandomForestremove.model")
+        result = randomforest.predict_proba(profile)[0][0] > 0.6
 
-    content = json.dumps({"kind": "notify", "data": "Done", "level": None, "end": "\n"})
-    conn.send(content.encode())
+        content = json.dumps({"kind": "notify", "data": "Done", "level": None, "end": "\n"})
+        conn.send(content.encode())
 
-    randomforest = load("pkg/overRandomForestremove.model")
-    
-    content = json.dumps({"kind": "notify", "data": "Predicting using Random forest......", "level": 0, "end": ""})
-    conn.send(content.encode())
-    
-    result = randomforest.predict_proba(profile)[0][0] > 0.6
+        result = "real" if result == True else "fake"
 
-    content = json.dumps({"kind": "notify", "data": "Done", "level": None, "end": "\n"})
-    conn.send(content.encode())
-
-    result = "real" if result == True else "fake"
-
-    content = json.dumps({"kind": "result", "data": result, "level": None, "end": "\n"})
-    conn.send(content.encode())
-    
-    conn.close()
+        content = json.dumps({"kind": "result", "data": result, "level": None, "end": "\n"})
+        conn.send(content.encode())
+        
+        conn.close()
 
 class DetectorServer:
     def __init__(self, credential = "credentials.yaml"):
+        "Load all email, password for crawling and ip, port for server"
         with open(credential, mode = "r") as yamlfile:
             cfg = yaml.safe_load(stream= yamlfile)
 
