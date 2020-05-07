@@ -18,7 +18,7 @@ On Linux
 ```bash
 # Set up a virtual env
 $ python3 -m venv env
-$ source ./venv/bin/activate
+$ source ./env/bin/activate
 
 # Install Python requirements
 $ pip install -r requirements.txt
