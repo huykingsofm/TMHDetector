@@ -1,12 +1,13 @@
 from Tcp import Tcp
 import json
-from scraper2.Scraper2 import Scraper2 
+from scraper2.Scraper2 import Scraper2, scrape_utils
 import yaml
 from DataProcessing import DataProcessing
 from sklearn.ensemble import RandomForestClassifier
 import pickle
 from convertor import Convertor
 import pandas as pd
+import os
 
 def load(filename):
     "Load a object which is dumped in a file with pickle"
@@ -44,6 +45,7 @@ def __solver__(conn, addr, data, **kwargs):
 
     # Solve data have key fb_id
     if "fb_id" in data:
+        fb_id = scrape_utils.__create_original_link__("https://", data["fb_id"])
         while True:
             # Get email and password from server object
             email = server.__email__[server.__current_account__]
@@ -78,7 +80,7 @@ def __solver__(conn, addr, data, **kwargs):
 
         # Create convertor and convert crawled data to vector
         convertor = Convertor("data")
-        profile = convertor.read_profile(data["fb_id"].split("/")[-1])
+        profile = convertor.read_profile(fb_id.split("/")[-1])
         profile = pd.DataFrame([profile])
 
         content = json.dumps({"kind": "notify", "data": "Done", "level": None, "end": "\n"})
@@ -106,8 +108,16 @@ def __solver__(conn, addr, data, **kwargs):
 
         result = "real" if result == True else "fake"
 
+        folder = os.path.join(os.getcwd(), "data")
+        target_dir = os.path.join(folder, fb_id.split("/")[-1])
+        filename = os.path.join(target_dir, "result.txt")
+        with open(filename, mode = "w") as f:
+            f.write(result)
+
         content = json.dumps({"kind": "result", "data": result, "level": None, "end": "\n"})
         print(content.encode())
+
+        conn.close()
 
 class DetectorServer:
     def __init__(self, credential = "credentials.yaml"):

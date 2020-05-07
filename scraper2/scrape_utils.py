@@ -40,7 +40,27 @@ __ban_text__ = "We limit"
 def __check_ban__(driver):
     try:
         text = driver.find_element_by_class_name("phl").text
-        if ban_text in text:
+        if __ban_text__ in text:
+            return True
+        return False
+    except:
+        return False
+
+__not_found_text__ = "This page isn't available"
+def __check_not_found__(driver):
+    try:
+        text = driver.find_element_by_class_name("_4-dp").text
+        if __not_found_text__ in text:
+            return True
+        return False
+    except:
+        return False
+
+__not_available_text__ = "The link you followed may have expired,"
+def __check_not_available__(driver):
+    try:
+        text = driver.find_element_by_class_name("phl").text
+        if __not_available_text__ in text:
             return True
         return False
     except:

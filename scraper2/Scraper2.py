@@ -292,6 +292,12 @@ class Scraper2:
                 if scrape_utils.__check_ban__(self.__driver__):
                     return False
 
+                if scrape_utils.__check_not_found__(self.__driver__):
+                    raise Exception("Profile not found")
+
+                if scrape_utils.__check_not_available__(self.__driver__):
+                    raise Exception("Profile not available")
+
                 if (status == "Friends"):
                     sections_bar = self.__driver__.find_element_by_xpath(
                         "//*[@class='_3cz'][1]/div[2]/div[1]"
@@ -334,6 +340,17 @@ class Scraper2:
             print("Some error occurred in creating the profile directory.")
             return False
 
+        error_file_name = os.path.join(target_dir, "error.txt")
+        if scrape_utils.__check_not_found__(self.__driver__):
+            with open(error_file_name, mode = "w") as f:
+                f.write("Profile not found")
+            raise Exception("Profile not found")
+
+        if scrape_utils.__check_not_available__(self.__driver__):
+            with open(error_file_name, mode = "w") as f:
+                f.write("Profile not available")
+            raise Exception("Profile not available")
+
         # Nickname and avatar
         self.__scrape_nickname_and_avatar__(target_dir)
     
@@ -361,6 +378,16 @@ class Scraper2:
         return True
 
     def __scrape_nickname_and_avatar__(self, target_dir):
+        if scrape_utils.__check_ban__(self.__driver__):
+            return False
+
+        if scrape_utils.__check_not_found__(self.__driver__):
+            raise Exception("Profile not found")
+
+        if scrape_utils.__check_not_available__(self.__driver__):
+            raise Exception("Profile not available")
+
+
         nickname = self.__driver__.find_element_by_class_name("_2nlw").text
         nickname = nickname.split("\n")
 
