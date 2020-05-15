@@ -3,11 +3,11 @@ import platform
 import sys
 import urllib.request
 import yaml
-#from . import elements
-import elements
+from . import elements
+#import elements
 import time
-#from . import scrape_utils
-import scrape_utils
+from . import scrape_utils
+#import scrape_utils
 import json
 
 from selenium import webdriver
