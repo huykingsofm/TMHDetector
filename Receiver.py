@@ -32,6 +32,17 @@ def __test__(dp, model, fbid):
 
     print(result)
 
+def __print__(data, verbose, **kwargs):
+    if verbose == None:
+        return
+        
+    if verbose == "print":
+        print(data)
+    
+    if verbose == "file" and "file" in kwargs:
+        with open(kwargs["file"], mode = "a") as f:
+            f.write(data + "\n")
+
 def __solver__(conn, addr, data, **kwargs):
     "Resolve a package 'data' come from client"
 
@@ -43,6 +54,11 @@ def __solver__(conn, addr, data, **kwargs):
         raise Exception("Expected server parameter")
     server = kwargs["server"]
 
+    if "uid" in data:
+        uid = data["uid"]
+    else:
+        uid = None
+
     # Solve data have key fb_id
     if "fb_id" in data:
         fb_id = scrape_utils.__create_original_link__("https://", data["fb_id"])
@@ -53,30 +69,32 @@ def __solver__(conn, addr, data, **kwargs):
 
             # Create scraper and start scraping facebook account
             try:
-                scraper = Scraper2(email, password)
-                bSuccess = scraper(data["fb_id"])
+                scraper = Scraper2(email, password, verbose= "file", sender= uid)
+                bSuccess = scraper(fb_id)
             except Exception as e:
                 print(str(e))
                 scraper.__driver__.close()
+                conn.close()
                 return
 
             # Not success if the crawler account is banned
-            if bSuccess:
+            if bSuccess is not False:
                 break
+            
             content = json.dumps({
                 "kind": "notify", 
                 "data": "Error in crawling, restart crawling...", 
                 "level": None, 
                 "end": "\n"
                 })
-            print(content.encode())
+            __print__(content, verbose = server.__verbose__, file = uid)
 
             # Switch account
             server.__current_account__ = (server.__current_account__ + 1) % len(server.__email__) 
 
     
         content = json.dumps({"kind": "notify", "data": "Converting crawled data to vector......", "level": 0, "end": ""})
-        print(content.encode())
+        __print__(content, verbose = server.__verbose__, file = uid)
 
         # Create convertor and convert crawled data to vector
         convertor = Convertor("data")
@@ -84,27 +102,27 @@ def __solver__(conn, addr, data, **kwargs):
         profile = pd.DataFrame([profile])
 
         content = json.dumps({"kind": "notify", "data": "Done", "level": None, "end": "\n"})
-        print(content.encode())
+        __print__(content, verbose = server.__verbose__, file = uid)
         
         content = json.dumps({"kind": "notify", "data": "Preprocessing data......", "level": 0, "end": ""})
-        print(content.encode())
+        __print__(content, verbose = server.__verbose__, file = uid)
         
         # Load datapreprocessing object and normalizing vector
         datapreprocessing = load("pkg/DataPreprocessingremove.dp")
         profile = datapreprocessing.convert(profile)
 
         content = json.dumps({"kind": "notify", "data": "Done", "level": None, "end": "\n"})
-        print(content.encode())
+        __print__(content, verbose = server.__verbose__, file = uid)
         
         content = json.dumps({"kind": "notify", "data": "Predicting using Random forest......", "level": 0, "end": ""})
-        print(content.encode())
+        __print__(content, verbose = server.__verbose__, file = uid)
         
         # Load model and predict result
         randomforest = load("pkg/overRandomForestremove.model")
         result = randomforest.predict_proba(profile)[0][0] > 0.6
 
         content = json.dumps({"kind": "notify", "data": "Done", "level": None, "end": "\n"})
-        print(content.encode())
+        __print__(content, verbose = server.__verbose__, file = uid)
 
         result = "real" if result == True else "fake"
 
@@ -115,12 +133,12 @@ def __solver__(conn, addr, data, **kwargs):
             f.write(result)
 
         content = json.dumps({"kind": "result", "data": result, "level": None, "end": "\n"})
-        print(content.encode())
+        __print__(content, verbose = server.__verbose__, file = uid)
 
         conn.close()
 
 class DetectorServer:
-    def __init__(self, credential = "credentials.yaml"):
+    def __init__(self, verbose = "file", credential = "credentials.yaml"):
         "Load all email, password for crawling and ip, port for server"
         with open(credential, mode = "r") as yamlfile:
             cfg = yaml.safe_load(stream= yamlfile)
@@ -144,6 +162,7 @@ class DetectorServer:
         self.__server__.__email__ = self.__email__
         self.__server__.__password__ = self.__password__
         self.__server__.__current_account__ = 0
+        self.__server__.__verbose__ = verbose   
 
     def start(self):
         self.__server__.start_listen()

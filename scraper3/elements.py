@@ -67,7 +67,7 @@ about_file_names = [
                 "Life Events.txt",
             ]
 
-posts_scan_list = ["Posts"]
+posts_scan_list = ["Posts, comments and reactions"]
 posts_section = []
 posts_elements_path = ['//div[@class="_5pcb _4b0l _2q8l"]']
 

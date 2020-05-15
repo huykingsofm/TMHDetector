@@ -1,7 +1,5 @@
-CURRENT CITY AND HOMETOWN
-Ho Chi Minh City, Vietnam
-Current city
+TỈNH/THÀNH PHỐ HIỆN TẠI VÀ QUÊ QUÁN
+Thành phố Hồ Chí Minh
+Tỉnh/Thành phố hiện tại
 Phan Rang-Tháp Chàm, Ninh Thuận, Vietnam
-Hometown
-OTHER PLACES LIVED
-Add a place
+Quê quán

@@ -1,6 +1,7 @@
 from Tcp import Tcp
 import json
 import argparse
+import random
 
 def __solver__(conn, addr, data, **kwargs):
     data = json.loads(data)
@@ -46,7 +47,9 @@ def main(args):
         client = Tcp.TcpClient(__solver__, error_log= False)
         client.output = args.output
         client.connect(args.ip, args.port)
-        client.socket.send(json.dumps({"fb_id" : args.id}).encode())
+        if args.status == "default":
+            args.status = str(random.randint(1000000000, 9999999999))
+        client.socket.send(json.dumps({"fb_id" : args.id, "uid": args.status}).encode())
         client.start()
     except Exception as e:
         print(str(e))
@@ -81,6 +84,12 @@ if __name__ == "__main__":
         "-o", "--output",
         help= "Export result to file",
         default= None
+    )
+
+    parser.add_argument(
+        "-s", "--status",
+        help= "status file",
+        default= "default"
     )
 
     args = parser.parse_args()

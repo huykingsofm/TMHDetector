@@ -60,8 +60,9 @@ def __solver__(conn, addr, data, **kwargs):
                 return
 
             # Not success if the crawler account is banned
-            if bSuccess:
+            if bSuccess is not False:
                 break
+            
             content = json.dumps({
                 "kind": "notify", 
                 "data": "Error in crawling, restart crawling...", 

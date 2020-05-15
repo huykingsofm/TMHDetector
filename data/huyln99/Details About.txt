@@ -1,6 +1,4 @@
-ABOUT YOU
-Write some details about yourself
-OTHER NAMES
-Add a nickname, a birth name...
-FAVORITE QUOTES
-Add your favorite quotations
+GIỚI THIỆU VỀ HUY
+Không có chi tiết nào khác để hiển thị
+TRÍCH DẪN YÊU THÍCH
+Không có trích dẫn yêu thích nào để hiển thị

@@ -3,9 +3,11 @@ import platform
 import sys
 import urllib.request
 import yaml
-from . import elements
+#from . import elements
+import elements
 import time
-from . import scrape_utils
+#from . import scrape_utils
+import scrape_utils
 import json
 
 from selenium import webdriver
@@ -15,7 +17,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-class Scraper2:
+class Scraper3:
     def __init__(self, 
     email, password, 
     friends_scan_list = None, friends_section = None, friends_elements_path = None, friends_file_names = None,
@@ -124,8 +126,8 @@ class Scraper2:
 
     def __extract_and_write_posts__(self, elements, filename):
         try:
-            f = open(filename, "w", newline="\r\n")
-            f.writelines("TIME              || TYPE          || REACTS || CMTs || IMGs ||" + "\n" + "\n")
+            content = []
+            content.append("TIME              || TYPE          || REACTS || CMTs || IMGs ||" + "\n" + "\n")
             n = len(elements)
             for i, x in enumerate(elements):
                 self.__send_message__(kind = "progress", current = i + 1, maximum = n)
@@ -177,26 +179,24 @@ class Scraper2:
                         + str(cmt)
                         + " || "
                         + str(img)
-                        + "\n"
                     )
                     try:
-                        f.writelines(line)
+                        content.append(line)
                     except Exception:
                         print("Posts: Could not map encoded characters")
                 except Exception:
                     pass
-            f.close()
         except Exception:
             print("Exception (extract_and_write_posts)", "Status =", sys.exc_info()[0])
 
-        return
+        return content
 
     def __save_to_file__(self, name, elements, status):
         try:
-            f = None  # file pointer
+            content = None
 
             if status != "Posts":
-                f = open(name, "w", encoding="utf-8", newline="\r\n")
+                content = []
 
             results = []
 
@@ -214,28 +214,21 @@ class Scraper2:
 
                 for i, _ in enumerate(results):
                     # friend's profile link
-                    f.writelines(results[i])
-                    f.write(",")
-
-                    # friend's name
-                    f.writelines(people_names[i])
-
-                    f.write("\n")
+                    content.append(results[i] + "," + people_names[i])
 
             # dealing with About Section
             elif status == "About":
-                results = elements[0].text
-                f.writelines(results)
+                results = elements[0].text.split("\n")
+                content.append(results)
 
             # dealing with Posts
             elif status == "Posts":
-                self.__extract_and_write_posts__(elements, name)
-                return
-                
-            f.close()
+                return self.__extract_and_write_posts__(elements, name)
 
         except Exception:
             print("Exception (save_to_file)", "Status =", str(status), sys.exc_info()[0])
+    
+        return content
 
     def __scroll__(self):
         current_scrolls = 0
@@ -281,6 +274,7 @@ class Scraper2:
         return scan_list, section, elements_path, file_names
 
     def __scrape_data__(self, user_id, status, target_dir):
+        ret_dict = {}
         page = []
 
         if status == "Posts":
@@ -318,7 +312,8 @@ class Scraper2:
 
                 data = self.__driver__.find_elements_by_xpath(elements_path[i])
                 file_name = os.path.join(target_dir, file_names[i])
-                self.__save_to_file__(file_name, data, status)
+                content = self.__save_to_file__(file_name, data, status)
+                ret_dict[scan_element] = content
 
             except Exception:
                 print(
@@ -330,11 +325,13 @@ class Scraper2:
                 )
             finally:
                 self.__send_message__(kind = "notify", data = "Done" + " " * 10)
-        return True
+        return ret_dict
 
     def __scrap_profile__(self, fb_id):
         folder = os.path.join(os.getcwd(), "data")
         scrape_utils.__create_folder__(folder)
+
+        ret_dict = {}
 
         self.__driver__.get(fb_id)
         url = self.__driver__.current_url
@@ -359,13 +356,14 @@ class Scraper2:
             raise Exception("Profile not available")
 
         # Nickname and avatar
-        self.__scrape_nickname_and_avatar__(target_dir)
+        ret_dict.update(self.__scrape_nickname_and_avatar__(target_dir))
     
         #Friends
         self.__send_message__(kind = "notify", data = "Scraping friends......", level= 1)
         ret = self.__scrape_data__(user_id, "Friends", target_dir)
         if ret is False:
             return False
+        ret_dict.update(ret)
         self.__send_message__(kind = "notify", data = "Scraping friends......Done", level=1)
 
         #About
@@ -373,6 +371,7 @@ class Scraper2:
         ret = self.__scrape_data__(user_id, "About", target_dir)
         if ret is False:
             return False
+        ret_dict.update(ret)
         self.__send_message__(kind = "notify", data = "Scraping about......Done", level= 1)
         
         # Posts
@@ -380,9 +379,10 @@ class Scraper2:
         ret = self.__scrape_data__(user_id, "Posts", target_dir)
         if ret == False:
             return False
+        ret_dict.update(ret)
         self.__send_message__(kind = "notify", data = "Scraping posts......Done", level= 1)
 
-        return True
+        return ret_dict
 
     def __scrape_nickname_and_avatar__(self, target_dir):
         if scrape_utils.__check_ban__(self.__driver__):
@@ -405,16 +405,13 @@ class Scraper2:
 
         avatar = self.__driver__.find_element_by_class_name("_11kf").get_attribute("src")
 
-        filename = os.path.join(target_dir, "Avatar.txt")
-        with open(filename, mode = "wt", encoding= "utf-8") as f:
-            f.write("NICKNAME AND AVATAR\n")
-            f.write("Fullname\n")
-            f.write(fullname + "\n")
-            f.write("Aternate name\n")
-            f.write(alter + "\n")
-            f.write("Avatar link\n")
-            f.write(avatar)
+        content = []
+        
+        content.append(fullname)
+        content.append(alter)
+        content.append(avatar)
 
+        return {"Avatar": content}
     def __safe_find_element_by_id__(self, elem_id):
         try:
             return self.__driver__.find_element_by_id(elem_id)
@@ -506,15 +503,14 @@ class Scraper2:
         fb_id = self.__facebook_https_prefix__ + "facebook.com/" + fb_id.split("/")[-1]
         
         self.__send_message__(kind = "notify", data = "Scraping data......", level= 0)
-        bsuccess = self.__scrap_profile__(fb_id)
+        content = self.__scrap_profile__(fb_id)
         self.__send_message__(kind = "notify", data = "Scraping data......Done", level = 0)
         
         self.__driver__.close()
-        return bsuccess
+        return content
 
 
 if __name__ == "__main__":
-    scrape = Scraper2("khangnguyentantranminh@gmail.com", "thaykhang1974")
-    scrape.__CHROMEDRIVER_BINARIES_FOLDER__ = "../bin"
-    scrape.__login__("khangnguyentantranminh@gmail.com", "thaykhang1974")
-    
+    scrape = Scraper3("khangnguyentantranminh@gmail.com", "thaykhang1974")
+    scrape.__CHROMEDRIVER_BINARIES_FOLDER__ = "bin"
+    print(scrape.__login__("khangnguyentantranminh@gmail.com", "thaykhang1974"))
